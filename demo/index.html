@@ -1,33 +1,81 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>kwc-reward-modal demo</title>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+		<link rel="stylesheet" type="text/css" href="../node_modules/@kano/kwc-style/fonts/bariol.css">
 
-    <script type="module">
-      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-      import '@polymer/iron-demo-helpers/demo-snippet';
-    </script>
+		<title>kwc-reward-modal demo</title>
 
-    <script type="module" src="../kwc-reward-modal.js"></script>
+		<script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-      </style>
-    </custom-style>
-  </head>
-  <body>
-    <div class="vertical-section-container centered">
-      <h3>Basic kwc-reward-modal demo</h3>
-      <demo-snippet>
-        <template>
-          <kwc-reward-modal></kwc-reward-modal>
-        </template>
-      </demo-snippet>
-    </div>
-  </body>
+		<script type="module">
+			import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+			import '@polymer/iron-demo-helpers/demo-snippet';
+		</script>
+
+		<script type="module" src="../kwc-reward-modal.js"></script>
+
+		<custom-style>
+			<style is="custom-style" include="demo-pages-shared-styles">
+			</style>
+		</custom-style>
+	</head>
+
+	<body>
+		<div class="vertical-section-container centered">
+			<h3>Basic kwc-reward-modal demo</h3>
+			<demo-snippet>
+				<template>
+					<style>
+						kwc-reward-modal {
+							--kwc-reward-modal-position: fixed;
+							--kwc-reward-modal-top: 0;
+							--kwc-reward-modal-left: 0;
+							--kwc-reward-modal-background: green;
+							--kwc-reward-modal-display: flex;
+							--kwc-reward-modal-flex: 1;
+							--kwc-reward-modal-flex-direction: column;
+							--kwc-reward-modal-align-items: center;
+							--kwc-reward-modal-justify-content: center;
+							--kwc-reward-modal-width: 100%;
+							--kwc-reward-modal-height: 100%;
+							--kwc-reward-modal-z-index: 1;
+							--kwc-reward-modal-margin: 16px;
+							--kwc-reward-modal-border-radius: 16px;
+							--kwc-reward-modal-font-family: var(--font-body);
+
+							--kwc-reward-modal-outline: none;
+
+							--kwc-reward-modal-title-color: #A1A5A8;
+							--kwc-reward-modal-title-font-weight: bold;
+							--kwc-reward-modal-title-font-size: 24.5px;
+							--kwc-reward-modal-button-color: #FFF;
+							--kwc-reward-modal-title-margin-top: 0;
+							--kwc-reward-modal-title-margin-bottom: 16px;
+
+							--kwc-reward-modal-button-border: none;
+							--kwc-reward-modal-button-padding: 11px 21px;
+							--kwc-reward-modal-button-border-radius: 25px;
+							--kwc-reward-modal-button-font-size: 16px;
+							--kwc-reward-modal-button-font-weight: bold;
+							--kwc-reward-modal-button-text-transform: capitalize;
+							--kwc-reward-modal-button-margin-top: 32px;
+							--kwc-reward-modal-button-background: #FE6B01;
+
+							--kwc-reward-modal-button-hover-cursor: pointer;
+
+							--kwc-reward-modal-button-disabled-background: #9FA4A8;
+						}
+					</style>
+					<kwc-reward-modal top-title="Unlocked Items" button="continue">
+						<img src="https://goo.gl/XRX8dF" slot="middle" style="width: 150px;">
+					</kwc-reward-modal>
+				</template>
+			</demo-snippet>
+		</div>
+	</body>
+
 </html>
