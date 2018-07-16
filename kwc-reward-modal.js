@@ -25,15 +25,33 @@ class KwcRewardModal extends PolymerElement {
 					flex-direction: var(--kwc-reward-modal-flex-direction, column);
 					align-items: var(--kwc-reward-modal-align-items, center);
 					justify-content: var(--kwc-reward-modal-justify-content, center);
-					width: calc(var(--kwc-reward-modal-width, 100%) - calc(var(--kwc-reward-modal-margin, 16px) * 2));
-					height: calc(var(--kwc-reward-modal-height, 100%) - calc(var(--kwc-reward-modal-margin, 16px) * 2));
+					width: 0px;
+					height: 0px;
 					z-index: var(--kwc-reward-modal-z-index, 1);
 					margin: var(--kwc-reward-modal-margin, 16px);
 					border-radius: var(--kwc-reward-modal-border-radius, 16px);
 					font-family: var(--kwc-reward-modal-font-family, var(--font-body));
+					transition: width .5s ease,
+								height .5s ease;
+				}
+				:host([opened]) {
+					width: calc(var(--kwc-reward-modal-width, 100%) - calc(var(--kwc-reward-modal-margin, 16px) * 2));
+					height: calc(var(--kwc-reward-modal-height, 100%) - calc(var(--kwc-reward-modal-margin, 16px) * 2));
 				}
 				*:focus {
 					outline: var(--kwc-reward-modal-outline, none);
+				}
+				::slotted(*),
+				* {
+					opacity: 0;
+					transition: opacity .2s ease;
+					transition-delay: 0s;
+				}
+				:host([opened]) ::slotted(*),
+				:host([opened]) * {
+					opacity: 1;
+					transition: opacity .5s ease;
+					transition-delay: .4s;
 				}
 				slot[name="top"] .title {
 					color: var(--kwc-reward-modal-title-color, #A1A5A8);
@@ -86,8 +104,19 @@ class KwcRewardModal extends PolymerElement {
 			buttonDisabled: {
 				type: Boolean,
 				value: false,
+			},
+			opened: {
+				type: Boolean,
+				value: false,
+				reflectToAttribute: true,
 			}
 		};
+	}
+	open() {
+		this.set("opened", true);
+	}
+	close() {
+		this.set("opened", false);
 	}
 }
 
