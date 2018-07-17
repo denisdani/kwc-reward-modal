@@ -90,8 +90,8 @@ You can use some pre-built functionality, or simply use the 3 slots `kwc-reward-
 <br/>
 
 ## Top-title
-<br/>
 Display a formatted text title, using the `top` slot:
+<br/>
 
 ```html
 <kwc-reward-modal top-title="Kano Computing"></kwc-reward-modal>
@@ -115,8 +115,8 @@ Display a formatted text title, using the `top` slot:
 <br/>
 
 ## Button
-<br/>
 Display a formatted button, using the `bottom` slot:
+<br/>
 
 ```html
 <kwc-reward-modal button="skip"></kwc-reward-modal>
@@ -158,9 +158,9 @@ or, if you want to disable the button:
 <br/>
 
 ## Background
-<br/>
 Show a background behind the modal.
 You can customize color & opacity:
+<br/>
 
 ```html
 <kwc-reward-modal background></kwc-reward-modal>
@@ -181,10 +181,10 @@ You can customize color & opacity:
 <br/>
 
 ## Focus-out
-<br/>
 If enabled, on click outside the element the modal will close.
 
 Please note that if you have background enabled, it counts as a click.
+<br/>
 
 ```html
 <kwc-reward-modal focus-out></kwc-reward-modal>
@@ -201,8 +201,8 @@ Please note that if you have background enabled, it counts as a click.
 <br/>
 
 ## Closable
-<br/>
 Display an icon on the top right to close the modal:
+<br/>
 
 ```html
 <kwc-reward-modal closable></kwc-reward-modal>
@@ -227,8 +227,8 @@ Display an icon on the top right to close the modal:
 <br/>
 
 ## No-overflow
-<br/>
 If enabled, it allows to have `overflow: hidden` on `<body>`:
+<br/>
 
 ```html
 <kwc-reward-modal no-overflow></kwc-reward-modal>
