@@ -157,6 +157,11 @@ class KwcRewardModal extends PolymerElement {
 				type: Boolean,
 				value: false,
 			},
+			noOverflow: {
+				type: Boolean,
+				value: false,
+				observer: '_noOverflowChanged',
+			}
 		};
 	}
 	constructor() {
@@ -210,9 +215,21 @@ class KwcRewardModal extends PolymerElement {
 	show() {
 		this.set('opened', true);
 		this.openedTime = new Date();
+
+		if (this.noOverflow) {
+			document.querySelector('body').style = 'overflow: hidden;';
+		}
 	}
 	hide() {
 		this.set('opened', false);
+		document.querySelector('body').style = 'overflow: auto;';
+	}
+	_noOverflowChanged(value) {
+		if(value && this.opened) {
+			document.querySelector('body').style = 'overflow: hidden;';
+		} else {
+			document.querySelector('body').style = 'overflow: auto;';
+		}
 	}
 }
 
