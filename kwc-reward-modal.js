@@ -217,19 +217,22 @@ class KwcRewardModal extends PolymerElement {
 		this.openedTime = new Date();
 
 		if (this.noOverflow) {
-			document.querySelector('body').style = 'overflow: hidden;';
+			this.setBodyOverflow('hidden');
 		}
 	}
 	hide() {
 		this.set('opened', false);
-		document.querySelector('body').style = 'overflow: auto;';
+		this.setBodyOverflow('auto');
 	}
 	_noOverflowChanged(value) {
 		if(value && this.opened) {
-			document.querySelector('body').style = 'overflow: hidden;';
+			this.setBodyOverflow('hidden');
 		} else {
-			document.querySelector('body').style = 'overflow: auto;';
+			this.setBodyOverflow('auto');
 		}
+	}
+	setBodyOverflow(overflow) {
+		document.querySelector('body').style.overflow = overflow;
 	}
 }
 
