@@ -18,7 +18,7 @@ class KwcRewardModal extends PolymerElement {
 		return html`
 			<style>
 				:host .background {
-					background: #000;
+					background: var(--kwc-reward-modal-background-background, #000);
 					width: 0;
 					height: 0;
 					position: fixed;
@@ -31,7 +31,7 @@ class KwcRewardModal extends PolymerElement {
 				:host([opened]) .background {
 					width: 100vw;
 					height: 100vh;
-					opacity: 0.4;
+					opacity: var(--kwc-reward-modal-background-opacity, .4);
 				}
 				:host .content {
 					position: var(--kwc-reward-modal-position, fixed);
@@ -98,14 +98,14 @@ class KwcRewardModal extends PolymerElement {
 					background: var(--kwc-reward-modal-button-disabled-background, #9FA4A8);
 				}
 				.closable {
-					width: 16px;
-					height: 16px;
-					position: absolute;
-					top: 16px;
-					right: 16px;
+					width: var(--kwc-reward-modal-close-width, 16px);
+					height: var(--kwc-reward-modal-close-height, 16px);
+					position: var(--kwc-reward-modal-close-position, absolute);
+					top: var(--kwc-reward-modal-close-top, 16px);
+					right: var(--kwc-reward-modal-close-right, 16px);
 				}
 				.closable:hover {
-					cursor: pointer;
+					cursor: var(--kwc-reward-modal-close-hover-cursor, pointer);
 				}
 			</style>
 			<div class="background" hidden$="[[!background]]"></div>
