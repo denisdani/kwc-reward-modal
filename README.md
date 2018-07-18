@@ -157,6 +157,65 @@ or, if you want to disable the button:
 
 <br/>
 
+## Custom Button
+Display a formatted custom button, using the `bottom` slot.
+
+You can receive custom event back when clicked.
+
+Note: the `custom-button` property override the `button` property.
+<br/>
+
+```html
+<kwc-reward-modal custom-button="[[myCustomButton]]"></kwc-reward-modal>
+```
+or, if you want to disable the button:
+```html
+<kwc-reward-modal custom-button="[[myCustomButton]]" button-disabled></kwc-reward-modal>
+```
+
+### Custom button object example:
+
+```js
+const myCustomButton = {
+    label: 'My awesome button',
+    eventBack: 'my-awesome-button-clicked',
+};
+```
+
+### Properties:
+
+- HTML attributes:
+    - `custom-button`
+        - *optional*
+        - default is `null`
+        - type: `Object`
+        - object fields:
+            - `label`
+                - *required*
+                - type: `String`
+            - `eventBack`
+                - *required*
+                - type: `String`
+    - `button-disabled`
+        - *optional*
+        - default is `false`
+        - type: `Boolean`
+
+- CSS variables:
+    - `--kwc-reward-modal-button-color`
+    - `--kwc-reward-modal-button-border`
+    - `--kwc-reward-modal-button-padding`
+    - `--kwc-reward-modal-button-border-radius`
+    - `--kwc-reward-modal-button-font-size`
+    - `--kwc-reward-modal-button-font-weight`
+    - `--kwc-reward-modal-button-text-transform`;
+    - `--kwc-reward-modal-button-margin-top`
+    - `--kwc-reward-modal-button-background`
+    - `--kwc-reward-modal-button-hover-cursor`
+    - `--kwc-reward-modal-button-disabled-background`;
+
+<br/>
+
 ## Background
 Show a background behind the modal.
 You can customize color & opacity:
