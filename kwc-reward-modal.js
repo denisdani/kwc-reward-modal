@@ -103,7 +103,10 @@ class KwcRewardModal extends PolymerElement {
 					height: var(--kwc-reward-modal-close-height, 16px);
 					position: var(--kwc-reward-modal-close-position, absolute);
 					top: var(--kwc-reward-modal-close-top, 16px);
-					right: var(--kwc-reward-modal-close-right, 16px);
+					right: var(--kwc-reward-modal-close-position-left-right, 16px);
+				}
+				.closable[position="left"] {
+					left: var(--kwc-reward-modal-close-position-left-right, 16px);
 				}
 				.closable:hover {
 					cursor: var(--kwc-reward-modal-close-hover-cursor, pointer);
@@ -115,10 +118,10 @@ class KwcRewardModal extends PolymerElement {
 			<div class="background" hidden$="[[!background]]"></div>
 			<div class="content">
 				<template is="dom-if" if="[[closeIcon]]">
-					<iron-icon src="[[closeIcon]]" class="closable" hidden$="[[!closable]]" on-click="hide"></iron-icon>
+					<iron-icon src="[[closeIcon]]" class="closable" hidden$="[[!closable]]" on-click="hide" position$="[[closeOn]]"></iron-icon>
 				</template>
 				<template is="dom-if" if="[[!closeIcon]]">
-					<iron-icon icon="kwc-ui-icons:close" class="closable" hidden$="[[!closable]]" on-click="hide"></iron-icon>
+					<iron-icon icon="kwc-ui-icons:close" class="closable" hidden$="[[!closable]]" on-click="hide" position$="[[closeOn]]"></iron-icon>
 				</template>
 				<slot name="top">
 					<p class="title" hidden$="[[!topTitle]]">[[topTitle]]</p>
@@ -183,6 +186,10 @@ class KwcRewardModal extends PolymerElement {
 			closeIcon: {
 				type: String,
 				value: '',
+			},
+			closeOn: {
+				type: String,
+				value: 'right',
 			},
 		};
 	}
