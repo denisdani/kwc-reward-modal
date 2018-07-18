@@ -124,7 +124,7 @@ class KwcRewardModal extends PolymerElement {
 						</iron-pages>
 					</template>
 					<template is="dom-if" if="[[customButton]]">
-						<button on-click="dispatchCustomButtonEvent">[[customButton.label]]</button>
+						<button on-click="dispatchCustomButtonEvent" disabled$="[[buttonDisabled]]">[[customButton.label]]</button>
 					</template>
 				</slot>
 			</div>
