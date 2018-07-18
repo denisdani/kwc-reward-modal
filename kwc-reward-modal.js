@@ -116,11 +116,16 @@ class KwcRewardModal extends PolymerElement {
 				</slot>
 				<slot name="middle"></slot>
 				<slot name="bottom">
-					<iron-pages selected="[[button]]" attr-for-selected="typology">
-						<button typology="open" on-click="open" disabled$="[[buttonDisabled]]">open</button>
-						<button typology="skip" on-click="skip" disabled$="[[buttonDisabled]]">skip</button>
-						<button typology="continue" on-click="continue" disabled$="[[buttonDisabled]]">continue</button>
-					</iron-pages>
+					<template is="dom-if" if="[[!customButton]]">
+						<iron-pages selected="[[button]]" attr-for-selected="typology">
+							<button typology="open" on-click="open" disabled$="[[buttonDisabled]]">open</button>
+							<button typology="skip" on-click="skip" disabled$="[[buttonDisabled]]">skip</button>
+							<button typology="continue" on-click="continue" disabled$="[[buttonDisabled]]">continue</button>
+						</iron-pages>
+					</template>
+					<template is="dom-if" if="[[customButton]]">
+						<button on-click="dispatchCustomButtonEvent">[[customButton.label]]</button>
+					</template>
 				</slot>
 			</div>
 		`;
@@ -134,6 +139,10 @@ class KwcRewardModal extends PolymerElement {
 			button: {
 				type: String,
 				value: '',
+			},
+			customButton: {
+				type: Object,
+				value: null,
 			},
 			buttonDisabled: {
 				type: Boolean,
@@ -244,6 +253,10 @@ class KwcRewardModal extends PolymerElement {
 	}
 	continue() {
 		var customEvent = new CustomEvent('continue-selected');
+      	this.dispatchEvent(customEvent);
+	}
+	dispatchCustomButtonEvent() {
+		var customEvent = new CustomEvent(this.customButton.eventBack);
       	this.dispatchEvent(customEvent);
 	}
 }
