@@ -1,6 +1,7 @@
 import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-icon/iron-icon.js';
+import '@webcomponents/shadycss/entrypoints/apply-shim.js';
 
 import '@kano/kwc-style/typography.js';
 import '@kano/kwc-icons/kwc-ui-icons.js';
@@ -119,6 +120,7 @@ class KwcRewardModal extends PolymerElement {
 				.closable span {
 					padding-left: 0;
 					padding-right: 8px;
+					@apply --kwc-reward-modal-close-text;
 				}
 				.closable[position="left"] span {
 					padding-left: 8px;
