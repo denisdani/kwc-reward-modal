@@ -111,12 +111,6 @@ class KwcRewardModal extends PolymerElement {
 					left: var(--kwc-reward-modal-close-position-left-right, 16px);
 					flex-direction: row;
 				}
-				kwc-reward-modal {
-					--kwc-reward-modal-close-text: {
-						color: #fff;
-						font-weight: bold;
-					}
-				}
 				.closable span {
 					padding-left: 0;
 					padding-right: 8px;
@@ -136,18 +130,20 @@ class KwcRewardModal extends PolymerElement {
 				.closable:hover {
 					cursor: var(--kwc-reward-modal-close-hover-cursor, pointer);
 				}
+				.closable[hidden] {
+					display: none;
+				}
 			</style>
 			<div class="background" hidden$="[[!background]]"></div>
 			<div class="content">
 				<div class="closable" position$="[[closeOn]]" on-click="hide" hidden$="[[!closable]]">
 					<template is="dom-if" if="[[closeIcon]]">
 						<iron-icon src="[[closeIcon]]"></iron-icon>
-						<span>[[closeText]]</span>
 					</template>
 					<template is="dom-if" if="[[!closeIcon]]">
 						<iron-icon icon="kwc-ui-icons:close"></iron-icon>
-						<span>[[closeText]]</span>
 					</template>
+					<span>[[closeText]]</span>
 				</div>
 				<slot name="top">
 					<p class="title" hidden$="[[!topTitle]]">[[topTitle]]</p>
