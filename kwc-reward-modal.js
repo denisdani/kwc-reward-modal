@@ -234,6 +234,18 @@ class KwcRewardModal extends PolymerElement {
 	setBodyOverflow(overflow) {
 		document.querySelector('body').style.overflow = overflow;
 	}
+	open() {
+		var customEvent = new CustomEvent('open-selected');
+      	this.dispatchEvent(customEvent);
+	}
+	skip() {
+		var customEvent = new CustomEvent('skip-selected');
+      	this.dispatchEvent(customEvent);
+	}
+	continue() {
+		var customEvent = new CustomEvent('continue-selected');
+      	this.dispatchEvent(customEvent);
+	}
 }
 
 window.customElements.define('kwc-reward-modal', KwcRewardModal);
