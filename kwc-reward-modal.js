@@ -3,6 +3,7 @@ import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-icon/iron-icon.js';
 
 import '@kano/kwc-style/typography.js';
+import '@kano/kwc-icons/kwc-ui-icons.js';
 
 /**
  * `kwc-reward-modal`
@@ -107,10 +108,18 @@ class KwcRewardModal extends PolymerElement {
 				.closable:hover {
 					cursor: var(--kwc-reward-modal-close-hover-cursor, pointer);
 				}
+				.closable[icon] {
+					fill: #FFF;
+				}
 			</style>
 			<div class="background" hidden$="[[!background]]"></div>
 			<div class="content">
-				<iron-icon src="https://goo.gl/L5X4o4" class="closable" hidden$="[[!closable]]" on-click="hide"></iron-icon>
+				<template is="dom-if" if="[[closeIcon]]">
+					<iron-icon src="[[closeIcon]]" class="closable" hidden$="[[!closable]]" on-click="hide"></iron-icon>
+				</template>
+				<template is="dom-if" if="[[!closeIcon]]">
+					<iron-icon icon="kwc-ui-icons:close" class="closable" hidden$="[[!closable]]" on-click="hide"></iron-icon>
+				</template>
 				<slot name="top">
 					<p class="title" hidden$="[[!topTitle]]">[[topTitle]]</p>
 				</slot>
@@ -170,7 +179,11 @@ class KwcRewardModal extends PolymerElement {
 				type: Boolean,
 				value: false,
 				observer: '_noOverflowChanged',
-			}
+			},
+			closeIcon: {
+				type: String,
+				value: '',
+			},
 		};
 	}
 	constructor() {
