@@ -38,7 +38,7 @@
 							--kwc-reward-modal-close-height: 16px;
 							--kwc-reward-modal-close-position: absolute;
 							--kwc-reward-modal-close-top: 16px;
-							--kwc-reward-modal-close-right: 16px;
+							--kwc-reward-modal-close-position-left-right: 16px;
 							--kwc-reward-modal-close-hover-cursor: pointer;
 
 							--kwc-reward-modal-position: fixed;
@@ -78,14 +78,31 @@
 							--kwc-reward-modal-button-disabled-background: #9FA4A8;
 						}
 					</style>
-					<kwc-reward-modal id="modal-1" class="styled" top-title="Unlocked Items" button="continue" background focus-out closable no-overflow>
-						<img src="https://goo.gl/XRX8dF" slot="middle" style="width: 150px;">
+					<kwc-reward-modal
+						id="modal-1"
+						class="styled"
+						top-title="Unlocked Items"
+						button="continue"
+						close-icon="https://goo.gl/L5X4o4"
+						close-on="left"
+						close-text="to map"
+						background
+						focus-out
+						closable
+						no-overflow>
+							<img src="https://goo.gl/XRX8dF" slot="middle" style="width: 150px;">
 					</kwc-reward-modal>
 					<button id="modal-1">Open modal</button>
 					<script type="text/javascript">
 						document.addEventListener('WebComponentsReady', () => {
 							const modal1 = document.querySelector("kwc-reward-modal#modal-1");
 							const button1 = document.querySelector("button#modal-1");
+							const customButton = {
+								label: 'test custom button',
+								eventBack: 'test-changed',
+							};
+							modal1.customButton = customButton;
+
 							button1.addEventListener("click", () => {
 								modal1.show();
 							});
