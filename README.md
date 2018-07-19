@@ -26,10 +26,26 @@ You can use some pre-built functionality, or simply use the 3 slots `kwc-reward-
             - `open`
             - `skip`
             - `continue`
+    - `custom-button`
+        - *optional*
+        - default is `null`
+        - type: `Object`
+        - object fields:
+            - `label`
+                - *required*
+                - type: `String`
+            - `eventBack`
+                - *required*
+                - type: `String`
     - `button-disabled`
         - *optional*
         - default is `false`
         - type: `Boolean`
+    - `opened`
+        - default is `false`
+        - type: `Boolean`
+        - properties:
+            - reflect to attribute
     - `background`
         - *optional*
         - default is `false`
@@ -42,6 +58,19 @@ You can use some pre-built functionality, or simply use the 3 slots `kwc-reward-
         - *optional*
         - default is `false`
         - type: `Boolean`
+    - `close-icon`
+        - *optional*
+        - default is `''`
+            - NB: You always have a default icon: `kwc-ui-icons:close`
+        - type: `String`
+    - `close-text`
+        - *optional*
+        - default is `''`
+        - type: `String`
+    - `close-on`
+        - *optional*
+        - default is `right`
+        - type: `String`
     - `no-overflow`
         - *optional*
         - default is `false`
@@ -260,7 +289,7 @@ Please note that if you have background enabled, it counts as a click.
 <br/>
 
 ## Closable
-Display an icon on the top right to close the modal:
+Display the default icon on the top to close the modal:
 <br/>
 
 ```html
@@ -270,6 +299,100 @@ Display an icon on the top right to close the modal:
 ### Properties:
 
 - HTML attributes:
+    - `closable`
+        - *optional*
+        - default is `false`
+        - type: `Boolean`
+
+- CSS variables:
+    - `--kwc-reward-modal-close-width`
+    - `--kwc-reward-modal-close-height`
+    - `--kwc-reward-modal-close-position`
+    - `--kwc-reward-modal-close-top`
+    - `--kwc-reward-modal-close-right`
+    - `--kwc-reward-modal-close-hover-cursor`
+
+<br/>
+
+## Close-icon
+Display a custom icon on the top to close the modal:
+<br/>
+
+```html
+<kwc-reward-modal close-icon="https://yoursite.com/img.png" closable></kwc-reward-modal>
+```
+
+### Properties:
+
+- HTML attributes:
+    - `close-icon`
+        - *optional*
+        - default is `''`
+            - NB: You always have a default icon: `kwc-ui-icons:close`
+        - type: `String`
+    - `closable`
+        - *optional*
+        - default is `false`
+        - type: `Boolean`
+
+- CSS variables:
+    - `--kwc-reward-modal-close-width`
+    - `--kwc-reward-modal-close-height`
+    - `--kwc-reward-modal-close-position`
+    - `--kwc-reward-modal-close-top`
+    - `--kwc-reward-modal-close-right`
+    - `--kwc-reward-modal-close-hover-cursor`
+
+<br/>
+
+## Close-text
+Display a custom text on the top, near the icon, to close the modal:
+<br/>
+
+```html
+<kwc-reward-modal close-text="Back to map" closable></kwc-reward-modal>
+```
+
+### Properties:
+
+- HTML attributes:
+    - `close-text`
+        - *optional*
+        - default is `''`
+        - type: `String`
+    - `closable`
+        - *optional*
+        - default is `false`
+        - type: `Boolean`
+
+- CSS variables:
+    - `--kwc-reward-modal-close-width`
+    - `--kwc-reward-modal-close-height`
+    - `--kwc-reward-modal-close-position`
+    - `--kwc-reward-modal-close-top`
+    - `--kwc-reward-modal-close-right`
+    - `--kwc-reward-modal-close-hover-cursor`
+
+- CSS mixin:
+    - `--kwc-reward-modal-close-text`
+
+<br/>
+
+## Close-on
+Choose where to display the text and the icon to close the modal (`left`, `right`):
+<br/>
+
+```html
+<kwc-reward-modal close-on="left" closable></kwc-reward-modal>
+```
+
+### Properties:
+
+- HTML attributes:
+    - `close-on`
+        - *optional*
+        - default is `right`
+        - type: `String`
     - `closable`
         - *optional*
         - default is `false`
